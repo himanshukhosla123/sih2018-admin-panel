@@ -1,0 +1,77 @@
+<div>
+
+<style>
+    #map{
+        min-height:500px;
+    }    
+</style>
+
+  
+<div id="dam_modal" class="modal fade" role="dialog" data-backdrop="static" tabindex="-5">
+  <div class="modal-window">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"   ng-click="resetFeilds();">&times;</button>
+          <h4 class="modal-title"><strong>Water Release</strong></h4>
+      </div>
+      <div class="modal-body">
+      <div id="map"></div>
+    </div>
+     
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="resetFeilds();">Close</button>
+      </div>
+
+  </div>
+</div>
+</div>
+
+<section class="content-header">
+                <h1>
+                    Alerts
+<!--                    <small>Preview</small>-->
+<!--               <a class="btn btn-success"><i class="fa fa-plus"></i>&nbsp;New Enquiry</a>-->
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                    <li class="active">Alerts</li>
+                </ol>
+            </section>
+
+<section class="content">
+                <div class="row">
+                    <div class="col-xs-12">
+                          
+                         <div class="" ng-controller="notification" ng-init="loadNotifications();">
+
+    <div class="notifications">
+
+             <div class="notification" ng-repeat="x in alerts" data-toggle="modal" data-target="#dam_modal" ng-click="setCurrentAlert(x);">
+                <i class="icon" aria-hidden="true" style="background-color:red;color:white;"><span class="fa fa-exclamation-triangle"></span></i>
+                <div class="notification-content">
+                    <div class="header" ng-init="getUser(x)">
+                        <h6 class="title" id="dialog-element-369-label">{{x.user.name + ' - is in danger'}}</h6>
+                        <p class="time">{{getDate(x.created_at)}}</div>    
+                         <p class="message">{{x.user.phone_number}}</p>
+                    </div>
+                </div>
+                
+                  <div class="notification" ng-show="noAlert">
+                <i class="icon" aria-hidden="true" style="background-color:#29b7d3;color:white;"><i class="fa fa-exclamation-triangle"></i></i>
+                <div class="notification-content">
+                    <div class="header">
+                       <h3 class="text-center">No Alerts</h3>
+                    </div>
+                </div>    
+            </div> 
+            </div>   
+        </div>
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </section>
+
+</div>
